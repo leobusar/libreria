@@ -5,10 +5,11 @@
 Class Example Univalle 2019
 
 ## Installation
-
+```
 compose install
 create .env file with to the database connection
 php artisan migrate:refresh 
-
+```
 ## Run dev server
-php artisan serve
+```php artisan serve
+```
