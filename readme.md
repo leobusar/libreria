@@ -11,5 +11,6 @@ create .env file with to the database connection
 php artisan migrate:refresh 
 ```
 ## Run dev server
-```php artisan serve
+```  
+php artisan serve
 ```
