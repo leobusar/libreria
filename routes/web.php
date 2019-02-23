@@ -39,7 +39,6 @@ Route::get('/home', 'HomeController@index');
 
 Route::group(['middleware' => ['permission:admin writers']], function () {
     //
-    Route::resource('writers', 'WriterController');
 });
 
 Route::group(['middleware' => ['role:editor']], function () {
