@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+@can('edit editorials')
     <section class="content-header">
         <h1>
             Editorial
@@ -20,4 +21,5 @@
            </div>
        </div>
    </div>
+@endcan   
 @endsection

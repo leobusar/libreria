@@ -69,7 +69,7 @@
 <!-- Writer Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('writer_id', 'Writer Id:') !!}
-    {!! Form::text('writer_id', null, ['class' => 'form-control']) !!}
+    {!! Form::select('writer_id', $writers, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Submit Field -->

@@ -10,6 +10,7 @@ use App\Repositories\PostRepository;
 use Flash;
 use App\Http\Controllers\AppBaseController;
 use Response;
+use App\Models\Writer;
 
 class PostController extends AppBaseController
 {
@@ -39,7 +40,8 @@ class PostController extends AppBaseController
      */
     public function create()
     {
-        return view('posts.create');
+        $writers =  Writer::pluck('nombre', 'id');
+        return view('posts.create')->with('writers', $writers);
     }
 
     /**
@@ -90,6 +92,7 @@ class PostController extends AppBaseController
     public function edit($id)
     {
         $post = $this->postRepository->findWithoutFail($id);
+        $writers =  Writer::pluck('nombre', 'id');
 
         if (empty($post)) {
             Flash::error('Post not found');
@@ -97,7 +100,7 @@ class PostController extends AppBaseController
             return redirect(route('posts.index'));
         }
 
-        return view('posts.edit')->with('post', $post);
+        return view('posts.edit', ['post'=> $post, 'writers' => $writers]);
     }
 
     /**

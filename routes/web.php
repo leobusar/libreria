@@ -34,8 +34,17 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
-Route::resource('writers', 'WriterController');
+Route::group(['middleware' => ['permission:admin writers']], function () {
+    //
+    Route::resource('writers', 'WriterController');
+});
 
-Route::resource('editorials', 'EditorialController');
+Route::group(['middleware' => ['role:editor']], function () {
 
-Route::resource('posts', 'PostController');
+ 	Route::resource('editorials', 'EditorialController');
+});
+
+Route::group(['middleware' => ['role:editor|writer']], function () {
+
+	Route::resource('posts', 'PostController');
+});
