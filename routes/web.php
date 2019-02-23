@@ -32,6 +32,9 @@ Route::get('/libro/{id}/{name}', "LibroController@prueba2")
 
 Auth::routes();
 
+    Route::resource('writers', 'WriterController');
+
+
 Route::get('/home', 'HomeController@index');
 
 Route::group(['middleware' => ['permission:admin writers']], function () {
